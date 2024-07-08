@@ -26,7 +26,7 @@
                   <ul class="list-inline mrgn-bttm-0">
                     <li>
                       <a lang="fr" href="#">
-                        <span class="hidden-xs" translate="no">English</span>
+                        <span class="hidden-xs link-color" translate="no">English</span>
                         <abbr
                             title="Français"
                             class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"
@@ -66,7 +66,7 @@
             >
               <h2>Search</h2>
 
-              <form action="#" method="get" name="cse-search-box" role="search">
+              <form  name="cse-search-box" role="search">
                 <div class="form-group wb-srch-qry">
                   <label for="wb-srch-q" class="wb-inv">Search Canada.ca</label>
 
@@ -89,8 +89,8 @@
                       type="submit"
                       id="wb-srch-sub"
                       class="btn btn-primary btn-small"
-                      name="wb-srch-sub">
-                      <span class=""><SearchOutlined style="color: white;font-weight: bolder" /></span
+                      name="wb-srch-sub"  style="background-color:  #26374a;border: none" >
+                      <span class=""><SearchOutlined style="color: white;font-weight: bolder; font-size: large" /></span
                       ><span class="wb-inv">Search</span>
                   </button>
                 </div>
@@ -137,8 +137,7 @@
           <h2 class="wb-inv">You are here:</h2>
           <div class="container">
             <ol class="breadcrumb">
-              <li><a href="#">Canada.ca</a></li>
-              <li><a href="#">Canada emergency response benefit</a></li>
+              <li class="d-flex  align-center">  <a href="#" class="link-color">Canada.ca</a>  <span class="mdi mdi-chevron-right" style="font-size: 18px"></span>   <a href="#" class="link-color">Canada emergency response benefit</a></li>
             </ol>
           </div>
         </nav>
@@ -167,60 +166,17 @@
             >Overview</a
             >
             </li>
-            <li>
-               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm">Who needs basic income</a></router-link>
-               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg">Who needs basic income</a></router-link>
-                <router-link :to="{name: 'apply'}"><a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Who needs basic income</a></router-link>
-              <a href="#" class="visible-xs visible-sm hidden-md hidden-lg">Who needs basic income</a> <router-link :to="{name: 'apply'}"></router-link>
-            </li>
+<!--            <li>-->
+<!--               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm">Who needs basic income</a></router-link>-->
+<!--               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg">Who needs basic income</a></router-link>-->
+<!--                <router-link :to="{name: 'apply'}"><a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Who needs basic income</a></router-link>-->
+<!--              <a href="#" class="visible-xs visible-sm hidden-md hidden-lg">Who needs basic income</a> <router-link :to="{name: 'apply'}"></router-link>-->
+<!--            </li>-->
             <li>
                <router-link :to="{name:'application'}"><a  class="hidden-xs hidden-sm">Apply</a></router-link>
                 <router-link :to="{name: 'application'}"> <a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg">Apply</a></router-link>
                <router-link :to="{name:'application'}"> <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Apply</a></router-link>
                <router-link :to="{name:'application'}"> <a href="#" class="visible-xs visible-sm hidden-md hidden-lg">Apply</a></router-link>
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm"
-              >emergency response  <abbr>benefit</abbr></a
-              ><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >emergency response  <abbr>benefit</abbr></a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm"
-              >emergency response  <abbr>benefit</abbr></a
-              ><a href="#" class="visible-xs visible-sm hidden-md hidden-lg"
-            >emergency response  <abbr>benefit</abbr></a
-            >
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm">Disability Support <abbr></abbr></a
-              ><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >Disability Support <abbr></abbr></a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm"
-              >Disability Support <abbr></abbr></a
-              ><a href="#" class="visible-xs visible-sm hidden-md hidden-lg"
-            >Disability Support <abbr></abbr></a
-            >
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm">Universal basic income</a
-              ><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >Universal basic income</a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Reporting a death</a
-              ><a href="#" class="visible-xs visible-sm hidden-md hidden-lg"
-            >Universal basic income</a
-            >
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm">Guaranteed basic income</a
-              ><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >Guaranteed basic income</a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Guaranteed basic income</a
-              ><a href="#" class="visible-xs visible-sm hidden-md hidden-lg"
-            >Guaranteed basic income</a
-            >
             </li>
           </ul>
         </nav>
@@ -682,8 +638,14 @@
     </div>
   </div>
   </body>
+
 </template>
+
 <script setup>
-import {CaretDownOutlined, SearchOutlined, ShareAltOutlined} from '@ant-design/icons-vue';
+import {CaretDownOutlined, SearchOutlined, ShareAltOutlined, CaretRightOutlined} from '@ant-design/icons-vue';
+
 </script>
-<style lang="scss"></style>
+
+<style lang="scss">
+
+</style>

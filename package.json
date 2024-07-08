@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@jamescoyle/svg-icon": "^0.1.1",
+    "@mdi/font": "^7.4.47",
+    "@mdi/js": "^7.4.47",
     "ant-design-vue": "^4.2.3",
     "axios": "^1.7.2",
     "firebase": "^10.12.2",
@@ -20,6 +23,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
+    "sass": "^1.77.6",
     "vite": "^5.3.1"
   }
 }

